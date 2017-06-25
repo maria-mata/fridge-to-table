@@ -10,18 +10,18 @@ https://wireframe.cc/VcbJUz
 
 ## User Stories
 ### Base App
-As a user, I need to know the name of the app.
-As a user, I need to know what the app does.
-As a user, I need to know where to search ingredients.
-As a user, I need to easily browse search results.
-As user, I need to be able to run multiple searches.
+* As a user, I need to know the name of the app.
+* As a user, I need to know what the app does.
+* As a user, I need to know where to search ingredients.
+* As a user, I need to easily browse search results.
+* As user, I need to be able to run multiple searches.
 
 ### Stretch
-As a user, I need to be able to select one or more recipes.
-As a user, I need to see the recipes I've selected.
-As a user, I need to know how to generate a shopping list based on my selections.
-As a user, I need to be able to modify the shopping list.
-As a user, I need to be able to print the shopping list from the browser.
+* As a user, I need to be able to select one or more recipes.
+* As a user, I need to see the recipes I've selected.
+* As a user, I need to know how to generate a shopping list based on my selections.
+* As a user, I need to be able to modify the shopping list.
+* As a user, I need to be able to print the shopping list from the browser.
 
 ## Deploy URL
 https://q1-project-1876f.firebaseapp.com/
