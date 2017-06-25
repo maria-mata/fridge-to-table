@@ -30,5 +30,5 @@ https://q1-project-1876f.firebaseapp.com/
 ## About Me
 I am a Web Development student at Galvanize in Denver. After 9 years working
 as an event and conference organizer, I decided to take my career
-in a more creative direction, which led me to develop an interest in learning to
-code and build responsive web apps.
+in a more creative direction, which led me to develop an interest in coding
+and building web apps.
