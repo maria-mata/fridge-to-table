@@ -38,6 +38,19 @@ a.brand-logo, a.nav-link, .button-collapse i {
   width: 75% !important;
 }
 
+i.material-icons {
+  font-size: inherit;
+  color: rgb(129,	160,	111);
+}
+
 p {
   line-height: 2rem;
+}
+
+.default-content {
+  /* Section that will disappear when search initiates */
+}
+
+.search-content {
+  /* Section that will appear when search initiates */
 }
