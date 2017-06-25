@@ -5,8 +5,12 @@ Edamam API (https://developer.edamam.com/) and is being developed as
 part of my first quarter (Q1) project for the Web Development Immersive program
 at Galvanize.
 
-## Wireframe
+## Links
+### Wireframe
 https://wireframe.cc/VcbJUz
+
+### Deploy
+https://q1-project-1876f.firebaseapp.com/
 
 ## User Stories
 ### Base App
@@ -22,9 +26,6 @@ https://wireframe.cc/VcbJUz
 * As a user, I need to know how to generate a shopping list based on my selections.
 * As a user, I need to be able to modify the shopping list.
 * As a user, I need to be able to print the shopping list from the browser.
-
-## Deploy URL
-https://q1-project-1876f.firebaseapp.com/
 
 ## About Me
 I am a Web Development student at Galvanize in Denver. After 9 years working
