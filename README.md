@@ -1,6 +1,6 @@
 # Description
-Fridge to Table allows you to search recipes based on ingredients you already
-have available in your refrigerator or pantry. This application will use the
+Fridge to Table allows you to search recipes based on specific ingredients,
+helping you make the most of what you have on hand. This application will use the
 Edamam API (https://developer.edamam.com/) and is being developed as
 part of my first quarter (Q1) project for the Web Development Immersive program
 at Galvanize.
