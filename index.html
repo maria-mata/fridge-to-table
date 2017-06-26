@@ -34,17 +34,15 @@
             <h1 class="header center">Type Ingredients Below</h1>
             <h5 class="row center">e.g. chicken, carrots, potatoes</h5>
             <div class="row center">
-              <input class="main-search" type="search" name="search" value="">
+              <!--  Find out if should be "search" or "text" input type -->
+              <input class="main-search" type="text" name="search" value="">
               <br>
-              <button class="btn" type="button" name="button">Go</button>
+              <button id="go-btn" class="btn" type="button" name="button">Go</button>
             </div>
           </div>
           <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes2.jpg"></div>
         </div>
 
-      </section>
-      <section class="search-content row">
-        <!--  Search Results Cards Here with Pagination  -->
       </section>
       <section class="default-content container row">
         <article class="col s12 m4">
@@ -73,6 +71,20 @@
             hashtag hot chicken master cleanse. Viral yr la croix freegan
             salvia flannel chartreuse locavore, shaman slow-carb glossier.</p>
         </article>
+      </section>
+      <section class="search-content container">
+        <!--  Search Results Cards Here with Pagination  -->
+        <div id="search-results" class="row">
+        </div>
+        <!-- <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active"><a href="#!">1</a></li>
+          <li class="waves-effect"><a href="#!">2</a></li>
+          <li class="waves-effect"><a href="#!">3</a></li>
+          <li class="waves-effect"><a href="#!">4</a></li>
+          <li class="waves-effect"><a href="#!">5</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul> -->
       </section>
     </main>
     <footer class="page-footer">
