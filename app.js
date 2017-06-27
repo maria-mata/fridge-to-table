@@ -5,11 +5,14 @@ $(document).ready(function() {
   var baseURL = "https://api.edamam.com/search"
   var appId = "79cadef9"
   var appKey = "0a17582107ea8f662ffaf8279e8731fa"
-  var range = "&from=0&to=12" // 12 results for testing
+  var from = 0
+  var to = 24
+  var range = "&from=" + from + "&to=" + to // 24 results for testing
 
   // Need to fix to allow multiple searches
   $("form.search-form").submit(function(event) {
     event.preventDefault()
+    $("#search-results").empty()
     var query = "?" + "q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
     var requestURL = baseURL + query + range
     var settings = {
@@ -48,7 +51,7 @@ function createNewCard(parent, recipe, index) {
   $(cardContent).append($("<span class='card-title activator grey-text text-darken-4'>"
     + recipe.label + "<i class='material-icons right'>more_vert</i></span>"))
   $(cardContent).append($("<p><a class='link' target='_blank' href="
-    + recipe.url + ">See Full Details</a></p>"))
+    + recipe.shareAs + ">See Full Details</a></p>"))
   // Need to fix title spacing
   $(cardReveal).append($("<span class='card-title grey-text text-darken-4'>"
     + recipe.label + "<i class='material-icons right'>close</i></span>"))

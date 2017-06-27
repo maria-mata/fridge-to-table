@@ -48,6 +48,11 @@ p {
   line-height: 2rem;
 }
 
+span.card-title {
+  height: 10vh;
+  overflow: scroll;
+}
+
 .default-content {
   /* Section that will disappear when search initiates */
 }
@@ -55,7 +60,3 @@ p {
 .search-content {
   /* Section that will appear when search initiates */
 }
-
-/*ul li {
-  list-style-type: disc;
-}*/
