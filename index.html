@@ -34,15 +34,17 @@
             <h1 class="header center">Type Ingredients Below</h1>
             <h5 class="row center">e.g. chicken, carrots, potatoes</h5>
             <div class="row center">
-              <!--  Find out if should be "search" or "text" input type -->
-              <input class="main-search" type="text" name="search" value="">
-              <br>
-              <button id="go-btn" class="btn" type="button" name="button">Go</button>
+              <form class="search-form">
+                <!-- <div class="search-wrapper card"> -->
+                  <input class="main-search" type="text" name="search" value=""><i class="material-icons">search</i>
+                  <br>
+                  <input type="submit" class="btn" value="Go">
+                <!-- </div> -->
+              </form>
             </div>
           </div>
           <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes2.jpg"></div>
         </div>
-
       </section>
       <section class="default-content container row">
         <article class="col s12 m4">
@@ -73,8 +75,8 @@
         </article>
       </section>
       <section class="search-content container">
-        <!--  Search Results Cards Here with Pagination  -->
         <div id="search-results" class="row">
+          <!-- Cards Appended Here Based on Search -->
         </div>
         <!-- <ul class="pagination">
           <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
