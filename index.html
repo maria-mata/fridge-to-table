@@ -6,6 +6,7 @@
     <title>Q1 Project</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lobster+Two" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
@@ -15,17 +16,33 @@
           <a href="#!" class="brand-logo">Fridge to Table</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a class="nav-link" href="">Saved Recipes</a></li>
-            <li><a class="nav-link" href="">Grocery List</a></li>
+            <li><a class="nav-link" href="/index.html">Home</a></li>
+            <li><a id="saved" class="nav-link" href="#saved-recipes">Saved Recipes <span id="parenthesis">(<span id="counter">0</span>)</span></a></li>
+            <!-- <li><a class="nav-link" href="">Grocery List</a></li> -->
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li><a class="nav-link" href="">Saved Recipes</a></li>
-            <li><a class="nav-link" href="">Grocery List</a></li>
+            <li><a class="nav-link" href="/index.html">Home</a></li>
+            <li><a class="nav-link" href="#saved-recipes">Saved Recipes</a></li>
+            <!-- <li><a class="nav-link" href="">Grocery List</a></li> -->
           </ul>
         </div>
       </nav>
     </header>
     <main>
+      <section class="container row">
+        <article class="col s12 m4">
+          <h2 class="center"><i class="material-icons">search</i></h2>
+          <h5 class="center">Type Ingredients</h5>
+        </article>
+        <article class="col s12 m4">
+          <h2 class="center"><i class="material-icons">grade</i></h2>
+          <h5 class="center">Save Recipe</h5>
+        </article>
+        <article class="col s12 m4">
+          <h2 class="center"><i class="material-icons">shopping_cart</i></h2>
+          <h5 class="center">Print Grocery List</h5>
+        </article>
+      </section>
       <section>
         <div class="parallax-container">
           <div class="container">
@@ -35,58 +52,34 @@
             <h5 class="row center">e.g. chicken, carrots, potatoes</h5>
             <div class="row center">
               <form class="search-form">
-                <!-- <div class="search-wrapper card"> -->
-                  <input class="main-search" type="text" name="search" value=""><i class="material-icons">search</i>
-                  <br>
-                  <input type="submit" class="btn" value="Go">
-                <!-- </div> -->
+                <input class="main-search" type="text" name="search" value="">
+                <br>
+                <input type="submit" class="btn" value="Go">
               </form>
             </div>
           </div>
           <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes2.jpg"></div>
         </div>
       </section>
-      <section class="default-content container row">
-        <article class="col s12 m4">
-          <h2 class="center"><i class="material-icons">search</i></h2>
-          <h5 class="center">Type Ingredients</h5>
-          <p class="light">Four loko hell of fam lumbersexual drinking vinegar,
-            affogato austin copper mug wayfarers retro portland. Locavore
-            stumptown yuccie yr lo-fi. Gluten-free roof party artisan put a bird
-             on it poutine, activated charcoal blue bottle post-ironic banjo
-             cold-pressed.</p>
-        </article>
-        <article class="col s12 m4">
-          <h2 class="center"><i class="material-icons">grade</i></h2>
-          <h5 class="center">Save Recipe</h5>
-          <p class="light">Listicle skateboard whatever celiac hot chicken yr.
-            Cardigan celiac letterpress man braid etsy truffaut, tilde
-            dreamcatcher messenger bag DIY sartorial pour-over plaid. Bushwick
-            kogi etsy, cold-pressed +1 succulents squid semiotics occupy umami
-            photo booth neutra lomo. </p>
-        </article>
-        <article class="col s12 m4">
-          <h2 class="center"><i class="material-icons">shopping_cart</i></h2>
-          <h5 class="center">Print Grocery List</h5>
-          <p class="light">Dreamcatcher try-hard street art, swag before they
-            sold out selvage listicle meditation fingerstache craft beer
-            hashtag hot chicken master cleanse. Viral yr la croix freegan
-            salvia flannel chartreuse locavore, shaman slow-carb glossier.</p>
-        </article>
-      </section>
       <section class="search-content container">
+        <h2 class="center search-heading"><i class="material-icons">search</i></h2>
+        <h5 class="center search-heading">Showing Results for "<span id="query"></span>"</h5>
         <div id="search-results" class="row">
           <!-- Cards Appended Here Based on Search -->
         </div>
-        <!-- <ul class="pagination">
-          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li class="active"><a href="#!">1</a></li>
-          <li class="waves-effect"><a href="#!">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!">4</a></li>
-          <li class="waves-effect"><a href="#!">5</a></li>
-          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul> -->
+        <div id="pagination">
+            <!-- Pagination flow goes here -->
+        </div>
+      </section>
+      <section id="saved-recipes" class="container">
+        <h2 class="center saved-heading"><i class="material-icons">grade</i></h2>
+        <h5 class="center saved-heading">Saved Recipes</h5>
+        <div class="row saved-recipes">
+          <!-- Cards Appended Here Based on Search -->
+        </div>
+        <div id="pagination">
+            <!-- Pagination flow goes here -->
+        </div>
       </section>
     </main>
     <footer class="page-footer">
@@ -101,8 +94,8 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Explore</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Saved Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li>
+            <li><a class="grey-text text-lighten-3" href="#saved-recipes">Saved Recipes</a></li>
+            <!-- <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li> -->
             <br>
             <li><a class="grey-text text-lighten-3" href="https://github.com/maria-mata/Q1-Project" target="_blank">GitHub Repo</a></li>
           </ul>

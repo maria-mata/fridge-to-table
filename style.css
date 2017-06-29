@@ -16,7 +16,20 @@ a.brand-logo, a.nav-link, .button-collapse i {
   color: rgb(129,	160,	111) !important;
 }
 
-.page-footer, .btn {
+a.brand-logo {
+  font-family: 'Lobster Two', cursive;
+}
+
+h1.header.center {
+  font-family: 'Lato', sans-serif;
+}
+
+input.main-search {
+  text-align: center;
+  font-size: 16px !important;
+}
+
+.page-footer, .btn, .btn:hover {
   background-color: rgb(129,	160,	111);
 }
 
@@ -34,7 +47,7 @@ a.brand-logo, a.nav-link, .button-collapse i {
 
 .main-search {
   background-color: white !important;
-  background-color: rgba(255, 255, 255, .5) !important;
+  background-color: rgba(255, 255, 255, .8) !important;
   width: 75% !important;
   border-bottom: none !important;
 }
@@ -51,12 +64,4 @@ p {
 span.card-title {
   height: 10vh;
   overflow: scroll;
-}
-
-.default-content {
-  /* Section that will disappear when search initiates */
-}
-
-.search-content {
-  /* Section that will appear when search initiates */
 }
