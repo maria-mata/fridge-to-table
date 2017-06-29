@@ -10,37 +10,37 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <header>
-      <nav class="nav-wrapper">
-        <div class="container">
-          <a href="#!" class="brand-logo">Fridge to Table</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="nav-link" href="/index.html">Home</a></li>
-            <li><a id="saved" class="nav-link" href="#saved-recipes">Saved Recipes <span id="parenthesis">(<span id="counter">0</span>)</span></a></li>
-            <!-- <li><a class="nav-link" href="">Grocery List</a></li> -->
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a class="nav-link" href="/index.html">Home</a></li>
-            <li><a class="nav-link" href="#saved-recipes">Saved Recipes</a></li>
-            <!-- <li><a class="nav-link" href="">Grocery List</a></li> -->
-          </ul>
-        </div>
-      </nav>
+    <header id="top">
+      <div class="navbar-fixed">
+        <nav class="nav-wrapper">
+          <div class="container">
+            <a href="#!" class="brand-logo">Fridge to Table</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="nav-link" href="#top">Search</a></li>
+              <li><a id="saved" class="nav-link" href="#saved-recipes">Saved Recipes <span id="parenthesis">(<span id="counter">0</span>)</span></a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a class="nav-link" href="#top">Search</a></li>
+              <li><a class="nav-link" href="#saved-recipes">Saved Recipes</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
     <main>
       <section class="container row">
         <article class="col s12 m4">
           <h2 class="center"><i class="material-icons">search</i></h2>
-          <h5 class="center">Type Ingredients</h5>
+          <h5 class="center">Search by Ingredients</h5>
         </article>
         <article class="col s12 m4">
           <h2 class="center"><i class="material-icons">grade</i></h2>
-          <h5 class="center">Save Recipe</h5>
+          <h5 class="center">Save Recipes</h5>
         </article>
         <article class="col s12 m4">
-          <h2 class="center"><i class="material-icons">shopping_cart</i></h2>
-          <h5 class="center">Print Grocery List</h5>
+          <h2 class="center"><i class="material-icons">done</i></h2>
+          <h5 class="center">Make at Home</h5>
         </article>
       </section>
       <section>
@@ -72,6 +72,8 @@
         </div>
       </section>
       <section id="saved-recipes" class="container">
+        <br>
+        <br>
         <h2 class="center saved-heading"><i class="material-icons">grade</i></h2>
         <h5 class="center saved-heading">Saved Recipes</h5>
         <div class="row saved-recipes">
@@ -94,8 +96,8 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Explore</h5>
           <ul>
+            <li><a class="grey-text text-lighten-3" href="#top">Search</a></li>
             <li><a class="grey-text text-lighten-3" href="#saved-recipes">Saved Recipes</a></li>
-            <!-- <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li> -->
             <br>
             <li><a class="grey-text text-lighten-3" href="https://github.com/maria-mata/Q1-Project" target="_blank">GitHub Repo</a></li>
           </ul>

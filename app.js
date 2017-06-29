@@ -1,11 +1,11 @@
-localStorage.setItem("recipes", JSON.stringify([]))
+// localStorage.setItem("recipes", JSON.stringify([]))
 
 $(document).ready(function() {
   $(".button-collapse").sideNav()
   $(".parallax").parallax();
   $("#parenthesis").hide()
-  $(".search-heading").hide()
-  $(".saved-heading").hide()
+  $(".search-content").hide()
+  $("#saved-recipes").hide()
 
   var baseURL = "https://api.edamam.com/search"
   var appId = "79cadef9"
@@ -19,7 +19,7 @@ $(document).ready(function() {
     $(document).scrollTop($(".search-content").offset().top)
     $("#search-results").empty()
     $("#query").text($(".main-search").val())
-    $(".search-heading").show()
+    $(".search-content").show()
     var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
     var requestURL = baseURL + query + range
     var settings = {
@@ -58,8 +58,8 @@ function createNewCard(parent, recipe) {
   $(cardContent).append($("<p><a class='link' target='_blank' href="
     + recipe.shareAs + ">See Full Details</a></p>"))
   // Adds a Save Recipe Button with click listener
-  $(cardContent).append($("<a class='btn'>Save Recipe</a>").click(function() {
-    saveRecipes(recipe)
+  $(cardContent).append($("<a class='btn'>Save</a>").click(function() {
+    // $(this).text("Unsave")
     $("#parenthesis").show()
     var counter = Number($("#counter").text()) + 1
     $("#counter").text(counter)
@@ -77,13 +77,13 @@ function appendRecipeCards(data) {
   }
 }
 
-function saveRecipes(recipe) {
-  var recipes = JSON.parse(localStorage.getItem("recipes"))
-  recipes.push(recipe)
-  localStorage.setItem("recipes", JSON.stringify(recipes))
-}
+// function saveRecipes(recipe) {
+//   var recipes = JSON.parse(localStorage.getItem("recipes"))
+//   recipes.push(recipe)
+//   localStorage.setItem("recipes", JSON.stringify(recipes))
+// }
 
 function appendSaved(recipe) {
-  $(".saved-heading").show()
+  $("#saved-recipes").show()
   createNewCard($(".saved-recipes"), recipe)
 }
