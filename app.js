@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // const loading = document.querySelector('.loading')
 
   $(".button-collapse").sideNav()
   $(".parallax").parallax();
@@ -17,10 +16,12 @@ $(document).ready(function() {
   $("form.search-form").submit(function(event) {
     event.preventDefault()
     // displayLoading()
+    $(".search-content").show()
     $(document).scrollTop($(".search-content").offset().top)
+    $("#loading").show()
     $("#search-results").empty()
     $("#query").text($(".main-search").val())
-    $(".search-content").show()
+
     var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
     var requestURL = baseURL + query + range
     var settings = {
@@ -83,7 +84,7 @@ function createNewCard(parent, recipe, buttonContent) {
 }
 
 function appendRecipeCards(data) {
-  // hideLoading()
+  $("#loading").hide()
   for (var i = 0; i < data.hits.length; i++) {
     createNewCard($("#search-results"), data.hits[i].recipe, "Save")
   }
@@ -96,10 +97,3 @@ function appendSaved(recipe) {
 
 
 // loading gif
-function displayLoading() {
-  loading.classList.remove('hide')
-}
-
-function hideLoading() {
-  loading.classList.add('hide')
-}
