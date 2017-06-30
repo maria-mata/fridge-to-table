@@ -1,42 +1,45 @@
 $(document).ready(function() {
-
   $(".button-collapse").sideNav()
   $(".parallax").parallax();
   $("#parenthesis").hide()
   $(".search-content").hide()
   $("#saved-recipes").hide()
 
+  smoothScroll()
+
   var baseURL = "https://api.edamam.com/search"
   var appId = "79cadef9"
   var appKey = "0a17582107ea8f662ffaf8279e8731fa"
   var from = 0
-  var to = 24 // 24 results for testing
+  var to = 48
   var range = "&from=" + from + "&to=" + to
 
   $("form.search-form").submit(function(event) {
     event.preventDefault()
-    // displayLoading()
-    $(".search-content").show()
-    $(document).scrollTop($(".search-content").offset().top)
-    $("#loading").show()
-    $("#search-results").empty()
-    $("#query").text($(".main-search").val())
+    if ($(".main-search").val() !== "") {
+      $(".search-content").show()
+      $('html, body').animate( {
+        scrollTop: $(".search-content").offset().top
+      }, 3000);
+      $("#loading").show()
+      $("#search-results").empty()
+      $("#query").text($(".main-search").val())
 
-    var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
-    var requestURL = baseURL + query + range
-    var settings = {
-      "url": requestURL,
-      "method": "GET",
-      "headers": {
-        "app_id": appId,
-        "app_key": appKey,
+      var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
+      var requestURL = baseURL + query + range
+      var settings = {
+        "url": requestURL,
+        "method": "GET",
+        "headers": {
+          "app_id": appId,
+          "app_key": appKey,
+        }
       }
+      $.ajax(settings).then(appendRecipeCards)
+      $(".main-search").val("")
     }
-    $.ajax(settings).then(appendRecipeCards)
-    $(".main-search").val("")
   })
-
-}) // end of $(document).ready
+});
 
 function ingredientList(array) {
   var list = $("<ul></ul>")
@@ -44,7 +47,7 @@ function ingredientList(array) {
     list.append("<li style='list-style-type: disc'>" + array[i])
   }
   return list
-}
+};
 
 function createNewCard(parent, recipe, buttonContent) {
   var card = $('<div class="card col s12 m3"></div>')
@@ -78,6 +81,7 @@ function createNewCard(parent, recipe, buttonContent) {
           $(this).hide()
         })
         $("#parenthesis").hide()
+        $(document).scrollTop("#saved-recipes").offset()
       }
     }
   })) // end of button click function
@@ -86,19 +90,32 @@ function createNewCard(parent, recipe, buttonContent) {
   $(cardReveal).append(ingredientList(recipe.ingredientLines))
   $(cardReveal).append($("<p><a class='link' target='_blank' href="
     + recipe.url + ">See Full Recipe <i class='material-icons'>open_in_new</i></a></p>"))
-  return $(parent).delay(150).fadeIn(800, function() {
+  return $(parent).delay(200).fadeIn(800, function() {
     $(this).append(card)
   })
-}
+};
 
 function appendRecipeCards(data) {
   $("#loading").hide()
   for (var i = 0; i < data.hits.length; i++) {
     createNewCard($("#search-results"), data.hits[i].recipe, "Save")
   }
-}
+};
 
 function appendSaved(recipe) {
   $("#saved-recipes").show()
   createNewCard($(".saved-recipes"), recipe, "Unsave")
-}
+};
+
+function smoothScroll() {
+  $('a[href^="#"]').on('click',function (e) {
+    e.preventDefault()
+    var target = this.hash
+    var $target = $(target)
+    $('html, body').stop().animate({
+        'scrollTop': $target.offset().top
+    }, 900, 'swing', function () {
+        window.location.hash = target
+    })
+  })
+};

@@ -50,7 +50,6 @@ input.main-search {
 
 i.material-icons {
   font-size: inherit;
-  /*color: rgb(129,	160,	111);*/
   color: inherit;
 }
 
@@ -65,4 +64,9 @@ span.card-title {
 
 .hide {
   display: none;
+}
+
+#parenthesis {
+  color: #9F6FA0;
+  font-weight: bold;
 }
