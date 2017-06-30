@@ -12,7 +12,7 @@ nav {
   background-color: white;
 }
 
-a.brand-logo, a.nav-link, .button-collapse i, h2.center {
+a.brand-logo, a.nav-link, i.material-icons, h2.center {
   color: rgb(129,	160,	111) !important;
 }
 

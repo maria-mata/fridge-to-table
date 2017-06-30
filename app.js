@@ -39,7 +39,7 @@ $(document).ready(function() {
       $(".main-search").val("")
     }
   })
-});
+}); // end of document ready function
 
 function ingredientList(array) {
   var list = $("<ul></ul>")
@@ -93,7 +93,7 @@ function createNewCard(parent, recipe, buttonContent) {
   return $(parent).delay(200).fadeIn(800, function() {
     $(this).append(card)
   })
-};
+}; // end of create new card function
 
 function appendRecipeCards(data) {
   $("#loading").hide()
@@ -118,4 +118,4 @@ function smoothScroll() {
         window.location.hash = target
     })
   })
-};
+}

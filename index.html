@@ -12,21 +12,21 @@
   <body>
     <header id="top">
       <div class="navbar-fixed">
-        <nav class="nav-wrapper">
-          <div class="container">
+        <nav>
+          <div class="nav-wrapper container">
             <a href="#top" class="brand-logo"><i class="material-icons">kitchen</i>Fridge to Table</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a class="nav-link" href="#top">Search</a></li>
               <li><a class="nav-link" href="#saved-recipes">Saved Recipes <span id="parenthesis">(<span id="counter">0</span>)</span></a></li>
             </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li><a class="nav-link" href="#top">Search</a></li>
-              <li><a class="nav-link" href="#saved-recipes">Saved Recipes</a></li>
-            </ul>
           </div>
         </nav>
       </div>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="h1.header.center">Search</a></li>
+        <li><a href="#saved-recipes">Saved Recipes</a></li>
+      </ul>
     </header>
     <main>
       <section class="container row">
@@ -58,7 +58,8 @@
               </form>
             </div>
           </div>
-          <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes.jpg"></div>
+          <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes.jpg"
+            alt="Cutting board with vegetables"></div>
         </div>
       </section>
       <section class="search-content container">
