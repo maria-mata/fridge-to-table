@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Q1 Project</title>
+    <title>Fridge to Table: Recipe Search by Ingredients</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Lobster+Two" rel="stylesheet">
@@ -14,7 +14,7 @@
       <div class="navbar-fixed">
         <nav class="nav-wrapper">
           <div class="container">
-            <a href="#!" class="brand-logo"><i class="material-icons">kitchen</i>Fridge to Table</a>
+            <a href="#top" class="brand-logo"><i class="material-icons">kitchen</i>Fridge to Table</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a class="nav-link" href="#top">Search</a></li>
@@ -61,19 +61,22 @@
           <div class="parallax"><img class="main-img" src="/assets/pepper-tomatoes.jpg"></div>
         </div>
       </section>
-      <!-- <div class="preloader-wrapper big active center hide">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div> -->
-        </div>
       <section class="search-content container">
         <h2 class="center search-heading"><i class="material-icons">search</i></h2>
         <h5 class="center search-heading">Showing Results for "<span id="query"></span>"</h5>
+        <!-- <div id="preloader" class="preloader-wrapper big active center">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div> -->
         <div id="search-results" class="row">
           <!-- Cards Appended Here Based on Search -->
         </div>

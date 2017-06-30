@@ -12,7 +12,7 @@ nav {
   background-color: white;
 }
 
-a.brand-logo, a.nav-link, .button-collapse i {
+a.brand-logo, a.nav-link, .button-collapse i, h2.center {
   color: rgb(129,	160,	111) !important;
 }
 
@@ -50,7 +50,8 @@ input.main-search {
 
 i.material-icons {
   font-size: inherit;
-  color: rgb(129,	160,	111);
+  /*color: rgb(129,	160,	111);*/
+  color: inherit;
 }
 
 p {
@@ -64,8 +65,4 @@ span.card-title {
 
 .hide {
   display: none;
-}
-
-.unsave {
-  /*display: none;*/
 }
