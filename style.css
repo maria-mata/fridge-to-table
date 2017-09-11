@@ -28,6 +28,10 @@ h1.header.center {
   color: inherit;
 }
 
+.footer-copyright > div a:hover {
+  text-decoration: underline;
+}
+
 input.main-search {
   text-align: center;
   font-size: 16px !important;

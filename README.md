@@ -8,6 +8,7 @@ helping you make the most of what you have on hand.
 
 ### How To Use
 * Enter ingredients into the search bar & browse
-<!-- ![alt](/demo/login.gif) -->
+![search](/assets/search.gif)
 
-* Save or unsave recipes, and repeat!
+* Save or unsave recipes and repeat!
+![save-unsave](/assets/save-unsave.gif)
