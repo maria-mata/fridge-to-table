@@ -24,6 +24,10 @@ h1.header.center {
   font-family: 'Lato', sans-serif;
 }
 
+.footer-copyright > div a {
+  color: inherit;
+}
+
 input.main-search {
   text-align: center;
   font-size: 16px !important;
