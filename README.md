@@ -1,5 +1,5 @@
 ## About
-[Fridge to Table](https://q1-project-1876f.firebaseapp.com/) is a simple app
+[Fridge to Table](https://fridge-to-table.mjmata.com/) is a simple app
 that allows you to search, browse, and save recipes based on ingredients,
 helping you make the most of what you have on hand.
 
