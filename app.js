@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   $("form.search-form").submit(function(event) {
     event.preventDefault()
-    if ($(".main-search").val() !== "") {
+    if (validInput()) {
       $(".search-content").show()
       $('html, body').animate( {
         scrollTop: $(".search-content").offset().top
@@ -36,6 +36,10 @@ $(document).ready(function() {
     }
   })
 }); // end of document ready function
+
+function validInput() {
+  return $(".main-search").val() !== ""
+}
 
 function ingredientList(array) {
   var list = $("<ul></ul>")
