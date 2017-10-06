@@ -19,8 +19,8 @@ function findRecipes(event) {
   event.preventDefault()
   if (validInput()) {
     initiateSearchBehavior()
-    var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
-    var requestURL = baseURL + query + range
+    var query = $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
+    var requestURL = `${baseURL}?q=${query}${range}`
     var settings = {
       "url": requestURL,
       "method": "GET",
@@ -53,57 +53,70 @@ function ingredientList(array) {
 };
 
 function createNewCard(parent, recipe, buttonContent) {
-  var card = $('<div class="card col s12 m3"></div>')
-  var cardImage = $('<div class="card-image waves-effect waves-block waves-light"></div>')
-  var cardContent = $("<div class='card-content'></div>")
-  var cardReveal = $("<div class='card-reveal'></div>")
-  $(card).append(cardImage)
-  $(card).append(cardContent)
-  $(card).append(cardReveal)
-  $(cardImage).append($('<img class="activator" src="' + recipe.image + '">'))
-  $(cardContent).append($("<span class='card-title activator grey-text text-darken-4'><i class='material-icons right'>more_vert</i>"
-    + recipe.label + "</span>"))
-  $(cardContent).append($("<a class='btn waves-effect waves-light'>" + buttonContent + "</a>").click(function() {
-    if ($(this).text() == "Save") {
-      $("#parenthesis").show()
-      var counter = Number($("#counter").text()) + 1
-      $("#counter").text(counter)
-      appendSaved(recipe)
-      $(this).parent().parent().delay(1000).fadeOut(300, function() {
-        $(this).remove();
-        })
-    } else if ($(this).text() == "Unsave") {
-      var counter = Number($("#counter").text()) - 1
-      $("#counter").text(counter)
-      createNewCard($("#search-results"), recipe, "Save")
-      $(this).parent().parent().delay(500).fadeOut(400, function() {
-        $(this).remove();
-        })
-      if (Number($("#counter").text()) === 0) {
-        $("#saved-recipes").delay(500).fadeOut(400, function() {
-          $(this).hide()
-        })
-        $("#parenthesis").hide()
-        $(document).scrollTop("#saved-recipes").offset()
-      }
-    }
-  })) // end of button click function
-  $(cardReveal).append($("<span class='card-title grey-text text-darken-4'><i class='material-icons right'>close</i>"
-    + recipe.label + "</span>"))
-  $(cardReveal).append(ingredientList(recipe.ingredientLines))
-  $(cardReveal).append($("<p><a class='link' target='_blank' href="
-    + recipe.url + ">See Full Recipe <i class='material-icons'>open_in_new</i></a></p>"))
+  var card = `
+    <div class="card col s12 m3">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="${recipe.image}">
+      </div>
+      <div class='card-content'>
+        <span class='card-title activator grey-text text-darken-4'>
+          <i class='material-icons right'>more_vert</i>${recipe.label}
+        </span>
+        <a class='btn waves-effect waves-light'>${buttonContent}</a>
+      </div>
+      <div class='card-reveal'>
+        <span class='card-title grey-text text-darken-4'>
+          <i class='material-icons right'>close</i>${recipe.label}
+        </span>
+        ${ingredientList(recipe.ingredientLines)}
+        <p>
+          <a class='link' target='_blank' href='${recipe.url}'>See Full Recipe
+            <i class='material-icons'>open_in_new</i>
+          </a>
+        </p>
+      </div>
+    </div>
+  `
+
+  // $('.save-unsave').click(function() {
+  //   if ($(this).text() == "Save") {
+  //     $("#parenthesis").show()
+  //     var counter = Number($("#counter").text()) + 1
+  //     $("#counter").text(counter)
+  //     appendSaved(recipe)
+  //     $(this).parent().parent().delay(1000).fadeOut(300, function() {
+  //       $(this).remove();
+  //       })
+  //   } else if ($(this).text() == "Unsave") {
+  //     var counter = Number($("#counter").text()) - 1
+  //     $("#counter").text(counter)
+  //     createNewCard($("#search-results"), recipe, "Save")
+  //     $(this).parent().parent().delay(500).fadeOut(400, function() {
+  //       $(this).remove();
+  //       })
+  //     if (Number($("#counter").text()) === 0) {
+  //       $("#saved-recipes").delay(500).fadeOut(400, function() {
+  //         $(this).hide()
+  //       })
+  //       $("#parenthesis").hide()
+  //       $(document).scrollTop("#saved-recipes").offset()
+  //     }
+  //   }
+  // }) // end of button click function
+
   return $(parent).delay(200).fadeIn(800, function() {
     $(this).append(card)
   })
 }; // end of create new card function
+
+
 
 function appendRecipeCards(data) {
   $("#loading").hide()
   for (var i = 0; i < data.hits.length; i++) {
     createNewCard($("#search-results"), data.hits[i].recipe, "Save")
   }
-};
+}
 
 function appendSaved(recipe) {
   $("#saved-recipes").show()
