@@ -8,37 +8,38 @@ var range = "&from=" + from + "&to=" + to
 $(document).ready(function() {
   activateApp()
   smoothScroll()
-
-
-  $("form.search-form").submit(function(event) {
-    event.preventDefault()
-    if (validInput()) {
-      $(".search-content").show()
-      $('html, body').animate( {
-        scrollTop: $(".search-content").offset().top
-      }, 3000);
-      $("#loading").show()
-      $("#search-results").empty()
-      $("#query").text($(".main-search").val())
-
-      var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
-      var requestURL = baseURL + query + range
-      var settings = {
-        "url": requestURL,
-        "method": "GET",
-        "headers": {
-          "app_id": appId,
-          "app_key": appKey,
-        }
-      }
-      $.ajax(settings).then(appendRecipeCards)
-      $(".main-search").val("")
-    }
-  })
+  $("form.search-form").submit(findRecipes)
 }); // end of document ready function
 
 function validInput() {
   return $(".main-search").val() !== ""
+}
+
+function findRecipes(event) {
+  event.preventDefault()
+  if (validInput()) {
+    $(".search-content").show()
+    $('html, body').animate( {
+      scrollTop: $(".search-content").offset().top
+    }, 3000);
+    $("#loading").show()
+    $("#search-results").empty()
+    $("#query").text($(".main-search").val())
+
+    var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
+    var requestURL = baseURL + query + range
+    var settings = {
+      "url": requestURL,
+      "method": "GET",
+      "headers": {
+        "app_id": appId,
+        "app_key": appKey,
+      }
+    }
+    $.ajax(settings).then(appendRecipeCards)
+    $(".main-search").val("")
+  }
+
 }
 
 function ingredientList(array) {
