@@ -18,14 +18,7 @@ function validInput() {
 function findRecipes(event) {
   event.preventDefault()
   if (validInput()) {
-    $(".search-content").show()
-    $('html, body').animate( {
-      scrollTop: $(".search-content").offset().top
-    }, 3000);
-    $("#loading").show()
-    $("#search-results").empty()
-    $("#query").text($(".main-search").val())
-
+    initiateSearchBehavior()
     var query = "?q=" + $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
     var requestURL = baseURL + query + range
     var settings = {
@@ -39,7 +32,16 @@ function findRecipes(event) {
     $.ajax(settings).then(appendRecipeCards)
     $(".main-search").val("")
   }
+}
 
+function initiateSearchBehavior() {
+  $(".search-content").show()
+  $('html, body').animate( {
+    scrollTop: $(".search-content").offset().top
+  }, 3000);
+  $("#loading").show()
+  $("#search-results").empty()
+  $("#query").text($(".main-search").val())
 }
 
 function ingredientList(array) {
