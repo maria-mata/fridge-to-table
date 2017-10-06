@@ -5,15 +5,8 @@ var from = 0
 var to = 48
 var range = "&from=" + from + "&to=" + to
 
-
 $(document).ready(function() {
-
-  $(".button-collapse").sideNav()
-  $(".parallax").parallax();
-  $("#parenthesis").hide()
-  $(".search-content").hide()
-  $("#saved-recipes").hide()
-
+  activateApp()
   smoothScroll()
 
 
@@ -121,4 +114,12 @@ function smoothScroll() {
         window.location.hash = target
     })
   })
+}
+
+function activateApp() {
+  $(".button-collapse").sideNav()
+  $(".parallax").parallax();
+  $("#parenthesis").hide()
+  $(".search-content").hide()
+  $("#saved-recipes").hide()
 }
