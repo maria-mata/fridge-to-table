@@ -4,6 +4,7 @@ var appKey = "0a17582107ea8f662ffaf8279e8731fa"
 var from = 0
 var to = 48
 var range = "&from=" + from + "&to=" + to
+let saveUnsaveRecipe
 
 $(document).ready(function() {
   activateApp()
@@ -52,8 +53,8 @@ function ingredientList(array) {
   return list
 };
 
-function createNewCard(parent, recipe, buttonContent) {
-  var card = `
+function createNewCard(parent, recipe, id, buttonContent) {
+  let card = `
     <div class="card col s12 m3">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="${recipe.image}">
@@ -62,7 +63,7 @@ function createNewCard(parent, recipe, buttonContent) {
         <span class='card-title activator grey-text text-darken-4'>
           <i class='material-icons right'>more_vert</i>${recipe.label}
         </span>
-        <a class='btn waves-effect waves-light'>${buttonContent}</a>
+        <a id='${id}' class='btn waves-effect waves-light'>${buttonContent}</a>
       </div>
       <div class='card-reveal'>
         <span class='card-title grey-text text-darken-4'>
@@ -77,44 +78,58 @@ function createNewCard(parent, recipe, buttonContent) {
       </div>
     </div>
   `
+  addSaveUnsave(parent, card, id, recipe)
+} // end of create new card function
 
-  // $('.save-unsave').click(function() {
-  //   if ($(this).text() == "Save") {
-  //     $("#parenthesis").show()
-  //     var counter = Number($("#counter").text()) + 1
-  //     $("#counter").text(counter)
-  //     appendSaved(recipe)
-  //     $(this).parent().parent().delay(1000).fadeOut(300, function() {
-  //       $(this).remove();
-  //       })
-  //   } else if ($(this).text() == "Unsave") {
-  //     var counter = Number($("#counter").text()) - 1
-  //     $("#counter").text(counter)
-  //     createNewCard($("#search-results"), recipe, "Save")
-  //     $(this).parent().parent().delay(500).fadeOut(400, function() {
-  //       $(this).remove();
-  //       })
-  //     if (Number($("#counter").text()) === 0) {
-  //       $("#saved-recipes").delay(500).fadeOut(400, function() {
-  //         $(this).hide()
-  //       })
-  //       $("#parenthesis").hide()
-  //       $(document).scrollTop("#saved-recipes").offset()
-  //     }
-  //   }
-  // }) // end of button click function
-
-  return $(parent).delay(200).fadeIn(800, function() {
+function addSaveUnsave(parent, card, id, recipe) {
+  $(parent).delay(200).fadeIn(800, function() {
     $(this).append(card)
+    $('a#' + id).click(function() {
+      event.preventDefault()
+      if ($(this).text() == "Save") {
+        increaseCounter(recipe)
+        appendSaved(recipe)
+        $(this).parent().parent().delay(1000).fadeOut(300, function() {
+          $(this).remove();
+        })
+        console.log('save button');
+      } else {
+        console.log('not save button');
+      }
+    })
   })
-}; // end of create new card function
+}
 
+function increaseCounter(recipe) {
+  $("#parenthesis").show()
+  var counter = Number($("#counter").text()) + 1
+  $("#counter").text(counter)
+}
 
+function saveUnsave(recipe) {
+  if ($(this).text() == "Save") {
+
+  } else if ($(this).text() == "Unsave") {
+    var counter = Number($("#counter").text()) - 1
+    $("#counter").text(counter)
+    createNewCard($("#search-results"), recipe, "Save")
+    $(this).parent().parent().delay(500).fadeOut(400, function() {
+      $(this).remove();
+    })
+    if (Number($("#counter").text()) === 0) {
+      $("#saved-recipes").delay(500).fadeOut(400, function() {
+        $(this).hide()
+      })
+      $("#parenthesis").hide()
+      $(document).scrollTop("#saved-recipes").offset()
+    }
+  }
+}
 
 function appendRecipeCards(data) {
   $("#loading").hide()
   for (var i = 0; i < data.hits.length; i++) {
-    createNewCard($("#search-results"), data.hits[i].recipe, "Save")
+    createNewCard($("#search-results"), data.hits[i].recipe, i, "Save")
   }
 }
 
