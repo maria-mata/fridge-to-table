@@ -1,15 +1,8 @@
-var baseURL = "https://api.edamam.com/search"
-var appId = "79cadef9"
-var appKey = "0a17582107ea8f662ffaf8279e8731fa"
-var from = 0
-var to = 48
-var range = "&from=" + from + "&to=" + to
-
 $(document).ready(function() {
   activateApp()
   smoothScroll()
   $("form.search-form").submit(findRecipes)
-});
+})
 
 function activateApp() {
   $(".button-collapse").sideNav()
@@ -37,7 +30,7 @@ function findRecipes(event) {
   if ($(".main-search").val() !== "") {
     initiateSearchBehavior()
     var query = $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
-    var requestURL = `${baseURL}?q=${query}${range}`
+    var requestURL = `${baseURL}?q=${query}&from=0&to=48`
     var settings = {
       "url": requestURL,
       "method": "GET",
