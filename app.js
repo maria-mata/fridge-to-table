@@ -75,6 +75,7 @@ function createNewCard(parent, recipe, buttonContent) {
   var ingredients = ingredientList(recipe.ingredientLines)
   var recipeLink = $(`<p><a class='link' target='_blank' href=${recipe.url}>See Full Recipe
     <i class='material-icons'>open_in_new</i></a></p>`)
+
   $(cardContent).append($(button).click(function() {
     if ($(this).text() == "Save") {
       saveRecipe(this, recipe)
@@ -82,7 +83,6 @@ function createNewCard(parent, recipe, buttonContent) {
       unsaveRecipe(this, recipe)
     }
   }))
-
   $(cardReveal).append(ingredients, recipeLink)
   $(card).append(cardContent, cardReveal)
   $(parent).delay(200).fadeIn(800, function() {
@@ -93,7 +93,7 @@ function createNewCard(parent, recipe, buttonContent) {
 function ingredientList(array) {
   var list = $("<ul></ul>")
   for (var i = 0; i < array.length; i++) {
-    list.append("<li style='list-style-type: disc'>" + array[i])
+    list.append(`<li style='list-style-type: disc'>${array[i]}`)
   }
   return list
 }
