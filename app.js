@@ -57,43 +57,34 @@ function initiateSearchBehavior() {
 function appendRecipeCards(data) {
   $("#loading").hide()
   for (var i = 0; i < data.hits.length; i++) {
-    createNewCard($("#search-results"), data.hits[i].recipe, "Save", i)
+    createNewCard($("#search-results"), data.hits[i].recipe, "Save")
   }
 }
 
 function createNewCard(parent, recipe, buttonContent) {
   var card = $(`<div class="card col s12 m3">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="${recipe.image}">
-    </div>
-  </div>`)
+    <img class="activator" src="${recipe.image}"></div></div>`)
   var cardContent = $(`<div class='card-content'>
     <span class='card-title activator grey-text text-darken-4'>
-      <i class='material-icons right'>more_vert</i>${recipe.label}
-    </span>
-  </div>`)
-  var cardReveal = `<div class='card-reveal'>
-    <span class='card-title grey-text text-darken-4'>
-      <i class='material-icons right'>close</i>
-      ${recipe.label}
-    </span>
-    ${ingredientList(recipe.ingredientLines)}
-    <p>
-      <a class='link' target='_blank' href=${recipe.url}>See Full Recipe
-        <i class='material-icons'>open_in_new</i>
-      </a>
-    </p>
-  </div>`
+    <i class='material-icons right'>more_vert</i>${recipe.label}</span></div>`)
   var button = `<a class='btn waves-effect waves-light'>${buttonContent}</a>`
+  var cardReveal = $(`<div class='card-reveal'>
+    <span class='card-title grey-text text-darken-4'>
+    <i class='material-icons right'>close</i>${recipe.label}</span></div>`)
+  var ingredients = ingredientList(recipe.ingredientLines)
+  var recipeLink = $(`<p><a class='link' target='_blank' href=${recipe.url}>See Full Recipe
+    <i class='material-icons'>open_in_new</i></a></p>`)
   $(cardContent).append($(button).click(function() {
-      if ($(this).text() == "Save") {
-        saveRecipe(this, recipe)
-      } else if ($(this).text() == "Unsave") {
-        unsaveRecipe(this, recipe)
-      }
+    if ($(this).text() == "Save") {
+      saveRecipe(this, recipe)
+    } else if ($(this).text() == "Unsave") {
+      unsaveRecipe(this, recipe)
+    }
   }))
-  $(card).append(cardContent)
-  $(card).append(cardReveal)
+
+  $(cardReveal).append(ingredients, recipeLink)
+  $(card).append(cardContent, cardReveal)
   $(parent).delay(200).fadeIn(800, function() {
     $(this).append(card)
   })
