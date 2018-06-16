@@ -30,14 +30,10 @@ function findRecipes(event) {
   if ($(".main-search").val() !== "") {
     initiateSearchBehavior()
     var query = $(".main-search").val().replace(/ /g, ",").replace(/,,/g, ",")
-    var requestURL = `${baseURL}?q=${query}&from=0&to=48`
+    var requestURL = `${baseURL}?q=${query}&app_id=${appId}&app_key=${appKey}&from=0&to=48`
     var settings = {
       "url": requestURL,
-      "method": "GET",
-      "headers": {
-        "app_id": appId,
-        "app_key": appKey,
-      }
+      "method": "GET"
     }
     $.ajax(settings).then(appendRecipeCards)
     $(".main-search").val("")
